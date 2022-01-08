@@ -1,0 +1,70 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<link href="~/css/ChatStyle.css" rel="stylesheet" />
+
+@section Scripts{
+    <script src="~/js/ChatRoomScripts.js"></script>
+}
+
+<div id="chatDialog" title="chat with support" class="disconnected">
+    <div id="takeName">
+        <h3>Cotact With Me </h3>
+        <form id="connectTouserToChat">
+            <div class="row">
+                <div class="col-md-8">
+                    <input class="form-control" type="text" placeholder="enter your name ..." id="UserName" onkeypress="changeBtnStyle()" />
+                </div>
+                <div class="col-md-2">
+                    <input class="btn btn-secondary" type="submit" value="Connect" id="connectionBtn" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="chatConnectiongInfo"><strong>Connecting....</strong></div>
+    <div id="chatMainPanel">
+        <ul id="chatHistory"></ul>
+        <div id="bottomPanel">
+            <form id="chatForm">
+                <div class="row">
+                    <div class="col-md-8">
+                        <input id="messageTextBox" type="text" class="form-control" placeholder="type message ..." />
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" value="Send" class="btn btn-primary text-white" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    window.onload = function () {
+        getDisable();
+    }
+
+    function getDisable() {
+        var btnName = document.getElementById('connectionBtn').disabled = true;
+    }
+
+    function changeBtnStyle() {
+        var checkInput = document.getElementById('UserName').value;
+        var btns = document.getElementById('connectionBtn');
+        if (checkInput) {
+            btns.classList.remove('btn-secondary');
+            btns.classList.add('btn-success');
+            btns.disabled = false;
+        }
+        else if (!checkInput) {
+            btns.classList.remove('btn-success');
+            btns.classList.add('btn-secondary');
+            btns.disabled = true;
+        }
+    }
+</script>
+

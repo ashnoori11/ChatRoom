@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChatRoom.Core\ChatRoom.Core.csproj" />
+    <ProjectReference Include="..\ChatRoom.Data\ChatRoom.Data.csproj" />
+    <ProjectReference Include="..\ChatRoom.Domain\ChatRoom.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
