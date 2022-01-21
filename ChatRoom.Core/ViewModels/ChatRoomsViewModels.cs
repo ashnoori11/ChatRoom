@@ -8,9 +8,12 @@ namespace ChatRoom.Core.ViewModels
 {
     public class ChatRoomsViewModels
     {
-        public int RoomId { get; set; }
+        public Guid RoomId { get; set; }
 
         public string OwnerConnectionId { get; set; }
-        public string GroupId { get; set; }
+        public Guid GroupId { get; set; }
+        public string RoomName { get; set; }
+        public string UserType { get; set; }
+        public string UserName { get; set; }
     }
 }

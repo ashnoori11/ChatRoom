@@ -17,8 +17,10 @@ namespace ChatRoom.IoC.Dependencies
         {
             services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddTransient<IChatMessageService, ChatMessageService>();
+            services.AddTransient<IUserservices, Userservices>();
+            services.AddTransient<IRoomService, RoomService>();
 
-            // signal R service 
+            // signal R service must be singleton
 
             services.AddSingleton<IChatRoomService, ChatRoomService>();
         }

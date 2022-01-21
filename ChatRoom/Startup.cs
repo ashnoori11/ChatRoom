@@ -3,8 +3,10 @@ using ChatRoom.Core.Services;
 using ChatRoom.Data.Context;
 using ChatRoom.IoC.Dependencies;
 using ChatRoom.SignalRHubs;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 
 namespace ChatRoom
 {
@@ -34,6 +37,37 @@ namespace ChatRoom
             services.ChatRoomServiceRegistery();
             services.AddSignalR();
             services.AddRazorPages();
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+            //services.AddAuthentication(options =>
+            //{
+            //    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            //}).AddCookie(options =>
+            //{
+            //    options.LoginPath = "/Login";
+            //    options.AccessDeniedPath = "/Login";
+            //});
+
+           // services.AddAuthentication(IdentityConstants.ApplicationScheme)
+           services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                  .AddCookie(options =>
+                  {
+                      options.LoginPath = "/Login";
+                      options.ExpireTimeSpan = new System.TimeSpan(100, 10, 0);
+                      options.SlidingExpiration = true;
+
+                      options.Cookie = new CookieBuilder
+                      {
+                          SameSite = SameSiteMode.Strict,
+                          SecurePolicy = CookieSecurePolicy.Always,
+                          IsEssential = true,
+                          HttpOnly = true
+                      };
+                      options.Cookie.Name = "MyCookie";
+                  });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,13 +87,14 @@ namespace ChatRoom
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseAuthentication();
             app.UseRouting();
-
+            app.UseCookiePolicy();
             app.UseAuthorization();
 
             //app.UseCors(builder =>
             //{
-            //    builder.WithOrigins("https://daneshkadeonline.ir")
+            //    builder.WithOrigins("server address")
             //    .AllowAnyHeader()
             //    .WithMethods("GET", "POST")
             //    .AllowCredentials();
@@ -69,6 +104,7 @@ namespace ChatRoom
             {
                 endpoints.MapRazorPages();
                 endpoints.MapHub<ChatHub>("/chatHub");
+                endpoints.MapHub<AgentHub>("/agentHub");
             });
         }
     }

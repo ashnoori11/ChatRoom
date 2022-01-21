@@ -1,0 +1,20 @@
+﻿#chatHistory{
+    list-style-type:none;
+    text-align:left;
+    height:400px;
+    overflow-y:scroll;
+    margin-bottom:0;
+}
+
+#chatHistory li .name{
+    font-weight:bold;
+    margin-right:5px;
+}
+
+#chatHistory li .time{
+    color:#999;
+}
+
+#chatHistory div.message{
+    padding-bottom:15px;
+}

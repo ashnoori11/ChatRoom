@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31829.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRoom", "ChatRoom\ChatRoom.csproj", "{0B684891-DF3A-4A35-A212-6A5339A5A0DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoom", "ChatRoom\ChatRoom.csproj", "{0B684891-DF3A-4A35-A212-6A5339A5A0DD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{D506B1A9-BFE5-426C-ABCF-57AD5ADEF936}"
 EndProject
@@ -15,13 +15,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IoC", "IoC", "{82870334-889
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{D07632E2-9A75-4A0D-AD83-844637AB97AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRoom.Domain", "ChatRoom.Domain\ChatRoom.Domain.csproj", "{E4FFB71F-38A4-455F-A754-8839199FD7ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoom.Domain", "ChatRoom.Domain\ChatRoom.Domain.csproj", "{E4FFB71F-38A4-455F-A754-8839199FD7ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRoom.Data", "ChatRoom.Data\ChatRoom.Data.csproj", "{2685973D-9743-4C8E-AB08-1EB1EF227415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoom.Data", "ChatRoom.Data\ChatRoom.Data.csproj", "{2685973D-9743-4C8E-AB08-1EB1EF227415}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRoom.Core", "ChatRoom.Core\ChatRoom.Core.csproj", "{4D98E9DB-9AA5-46FE-BF80-DE12DEF94277}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoom.Core", "ChatRoom.Core\ChatRoom.Core.csproj", "{4D98E9DB-9AA5-46FE-BF80-DE12DEF94277}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRoom.IoC", "ChatRoom.IoC\ChatRoom.IoC.csproj", "{CC04951B-57C4-4C71-A54D-E89073BDB5F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatRoom.IoC", "ChatRoom.IoC\ChatRoom.IoC.csproj", "{CC04951B-57C4-4C71-A54D-E89073BDB5F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

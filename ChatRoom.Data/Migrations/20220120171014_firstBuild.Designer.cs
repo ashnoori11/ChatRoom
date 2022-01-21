@@ -4,14 +4,16 @@ using ChatRoom.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ChatRoom.Data.Migrations
 {
     [DbContext(typeof(ChatRoomContext))]
-    partial class ChatRoomContextModelSnapshot : ModelSnapshot
+    [Migration("20220120171014_firstBuild")]
+    partial class firstBuild
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -9,7 +9,9 @@ namespace ChatRoom.Core.InterfaceServices
 {
    public interface IChatMessageService
     {
-        Task<bool> SaveMessageAsync(ChatMessageViewModels viewModel);
+        Task<Guid> SaveMessageAsync(ChatMessageViewModels viewModel);
         Task InsertChatGroupInfoAsync(string connectionId, Guid roomId);
+        Task<IEnumerable<ChatMessageViewModels>> GetAllChatHistories();
+        Task<IEnumerable<ChatMessageViewModels>> GetAllChatHistoryByRoomId(Guid roomid);
     }
 }

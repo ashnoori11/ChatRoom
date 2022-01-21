@@ -1,0 +1,26 @@
+﻿@page
+@model ChatRoom.Pages.LoginModel
+@{
+    
+}
+
+<link href="~/css/Agent.css" rel="stylesheet" />
+
+<div class="jumbotron">
+    <h1 class="display-4">Login</h1>
+    <p class="lead"></p>
+</div>
+
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <label>UserName</label>
+            <input asp-for="ViewModel.UserName" class="form-control" placeholder="UserName" />
+            <br />
+            <label>Password</label>
+            <input asp-for="ViewModel.Passwrod" class="form-control" placeholder="Password" />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

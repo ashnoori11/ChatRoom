@@ -9,7 +9,7 @@ namespace ChatRoom.Core.ViewModels
 {
    public class ChatMessageViewModels
     {
-        public int MessageId { get; set; }
+        public Guid MessageId { get; set; }
 
         [Required]
         public string SenderName { get; set; }
@@ -19,5 +19,8 @@ namespace ChatRoom.Core.ViewModels
 
         [Required]
         public DateTimeOffset SendAt { get; set; }
+
+        public Guid RoomId { get; set; }
+        public int UserId { get; set; }
     }
 }

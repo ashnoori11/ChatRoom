@@ -12,6 +12,8 @@ var chatHubconnection = new signalR.HubConnectionBuilder()
     .withUrl('/chatHub')
     .build();
 
+// in onConnected method on Chathub class , we have have line of code wich we used clients.caller and we saied if this line want to run ,
+// must call ReciveMessage on js file , and js file will call an other function
 chatHubconnection.on('ReciveMessage', renderMessage);
 
 chatHubconnection.onclose(function () {
@@ -36,6 +38,9 @@ function onConnected() {
 
     var messageTextBox = document.getElementById('messageTextBox');
     messageTextBox.focus();
+
+    // set chat room name by connecting
+    chatHubconnection.invoke('SetName', chattingPerson);
 }
 
 function ready() {
@@ -61,7 +66,6 @@ function ready() {
 }
 
 function sendMessage(text) {
-    debugger
     if (text && text.length) {
         chatHubconnection.invoke('SendMessage', chattingPerson, text);
     }
